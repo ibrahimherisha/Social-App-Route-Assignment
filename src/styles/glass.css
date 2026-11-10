@@ -1,0 +1,151 @@
+/* Magic Social — warm brown / cream design system */
+:root {
+  color-scheme: light;
+  --brown: #6F4E37;
+  --brown-dark: #3E2723;
+  --brown-soft: #8D6E63;
+  --beige: #D7CCC8;
+  --cream: #F5F0E8;
+  --sand: #E8DCCB;
+  --gold: #C19A6B;
+  --ink: #2D2521;
+  --muted: #75665C;
+  --surface: #FFFFFF;
+}
+[data-mantine-color-scheme="dark"] { color-scheme: dark; }
+
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--mantine-color-text);
+  background: var(--bg-0);
+  background-image: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 420px);
+  background-attachment: fixed;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgba(193,154,107,.32); color: inherit; }
+:focus-visible { outline: 2px solid #A77A50; outline-offset: 3px; border-radius: 6px; }
+a { color: var(--brown); }
+[data-mantine-color-scheme="dark"] a { color: #D7B58D; }
+
+.glass-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: none;
+}
+.backdrop {
+  position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background: linear-gradient(145deg, var(--bg-1), var(--bg-0));
+  overflow: hidden;
+}
+.backdrop .orb { display: none; }
+.vignette { display: none; }
+
+.btn-gradient {
+  background: var(--accent-grad);
+  color: #fff;
+  border: 1px solid rgba(62,39,35,.08);
+  border-radius: 12px;
+  font-weight: 750;
+  box-shadow: 0 5px 13px rgba(111,78,55,.18);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.btn-gradient:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(111,78,55,.24); filter: brightness(1.04); }
+.btn-gradient:active:not(:disabled) { transform: translateY(0); }
+.btn-gradient:disabled { opacity: .48; }
+
+.nav-pill {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--mantine-color-text);
+  font-weight: 700;
+  border-radius: 11px;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+.nav-pill:hover { background: var(--glass-hover); }
+.nav-pill.active {
+  background: #6F4E37;
+  color: #fff;
+  border-color: #6F4E37;
+  box-shadow: 0 4px 10px rgba(111,78,55,.18);
+}
+.nav-icon { border-radius: 13px; transition: background .18s ease, color .18s ease; }
+.nav-icon.active { background: #6F4E37; color: #fff; box-shadow: 0 4px 10px rgba(111,78,55,.18); }
+.icon-btn {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: var(--glass-soft); border: 1px solid var(--glass-border);
+  color: var(--mantine-color-text);
+  transition: background .18s ease, transform .18s ease;
+}
+.icon-btn:hover { background: var(--glass-hover); transform: translateY(-1px); }
+
+.brand-mark {
+  width: 39px; height: 39px; border-radius: 12px;
+  background: linear-gradient(135deg, #6F4E37, #8D6E63);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  box-shadow: 0 5px 13px rgba(111,78,55,.22);
+}
+.brand-name { font-family: "Manrope", sans-serif; font-size: 1.06rem; font-weight: 800; letter-spacing: -.035em; line-height: 1.1; }
+.brand-sub { font-family: "Manrope", sans-serif; font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--mantine-color-dimmed); line-height: 1.2; }
+.av-ring { padding: 2.5px; border-radius: 50%; background: linear-gradient(135deg,#8D6E63,#C19A6B); flex-shrink: 0; }
+.av-ring > .mantine-Avatar-root { border: 2px solid var(--glass); display: block; }
+.av-ring.hero > .mantine-Avatar-root { border-width: 3px; }
+.font-display { font-family: "Manrope", sans-serif; letter-spacing: -.025em; }
+
+.post-card { transition: transform .2s ease, box-shadow .2s ease; }
+@media (hover:hover) and (pointer:fine) {
+  .post-card:hover { transform: translateY(-2px); }
+}
+.post-image {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
+  border-radius: 14px; border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 20px rgba(62,39,35,.10);
+}
+.hero-card { overflow: hidden; padding: 0; }
+.profile-cover {
+  height: 196px;
+  background: linear-gradient(120deg,#3E2723 0%,#6F4E37 52%,#B08A67 100%);
+  position: relative;
+}
+.profile-cover-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.36; }
+.profile-cover::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%,rgba(45,37,33,.35)); }
+.hero-body { padding: 0 24px 22px; }
+.hero-top { margin-top: -46px; position: relative; }
+.mantine-TextInput-input:focus, .mantine-Textarea-input:focus,
+.mantine-PasswordInput-input:focus, .mantine-FileInput-input:focus {
+  border-color: #A77A50;
+  box-shadow: 0 0 0 2px rgba(193,154,107,.16);
+}
+.mantine-TextInput-input::placeholder, .mantine-Textarea-input::placeholder,
+.mantine-PasswordInput-input::placeholder, .mantine-FileInput-input::placeholder { color: var(--mantine-color-dimmed); }
+.mantine-Button-root { font-weight: 700; transition: transform .16s ease, box-shadow .16s ease, background .16s ease; }
+.mantine-Button-root[data-variant="filled"] { background: #6F4E37; }
+.mantine-Button-root[data-variant="filled"]:hover { background: #5B3B2D; }
+.mantine-Button-root[data-variant="light"] { background: rgba(111,78,55,.11); color: #6F4E37; }
+[data-mantine-color-scheme="dark"] .mantine-Button-root[data-variant="light"] { background: rgba(215,181,141,.14); color: #E4C7A6; }
+.mantine-Input-input, .mantine-Textarea-input { transition: border-color .18s ease, box-shadow .18s ease; }
+.mantine-Menu-dropdown, .mantine-Popover-dropdown, .mantine-Modal-content {
+  background: var(--glass-strong); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow);
+}
+.mantine-AppShell-main { padding-top: 22px; }
+.mantine-AppShell-header, .mantine-AppShell-footer { z-index: 100; }
+.mantine-Table-table { border-color: var(--glass-divider); }
+.mantine-Table-th { color: var(--mantine-color-dimmed); font-weight: 750; }
+.mantine-Badge-root { font-weight: 700; }
+@media (max-width: 840px) {
+  .profile-cover { height: 150px; }
+  .hero-body { padding: 0 18px 18px; }
+  .hero-top { margin-top: -38px; }
+  .mantine-AppShell-main { padding-top: 14px; }
+}
+@media (max-width: 600px) {
+  .mantine-AppShell-main { padding-left: 12px; padding-right: 12px; }
+  .glass-card { border-radius: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; }
+}
